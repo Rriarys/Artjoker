@@ -1,5 +1,5 @@
-function testBonusCode (array) {
-    function splittingToPares (origArray) {
+function testBonusCode (array) { //основная функция
+    function splittingToPares (origArray) { //ф-я формирующая пары нечетных чисел
         let workArray = []
         for (let i = 0; i < origArray.length; i ++) {
             workArray.push(origArray[i])
@@ -11,9 +11,9 @@ function testBonusCode (array) {
         }
         let onlyDis = workArray.join('').split('#').filter(el => el)
 
-        if (onlyDis.length === 1) oneHundredCheck(origArray)
+        if (onlyDis.length === 1) oneHundredCheck(origArray) //если одна пара
 
-        else if (onlyDis.length === 2 && (onlyDis[0].length === 1 || onlyDis[1].length === 1)) oneHundredCheck(origArray)
+        else if (onlyDis.length === 2 && (onlyDis[0].length === 1 || onlyDis[1].length === 1)) oneHundredCheck(origArray) //если две пары, но по 1му символу
 
         else {
             let resultArr = []
@@ -28,7 +28,7 @@ function testBonusCode (array) {
         }
     }
 
-    function twoThousandCheck (resultPairs) {
+    function twoThousandCheck (resultPairs) { //ф-я проверки пар на расположение по возрастанию
         let rArray = []
         for (let i = 0; i < resultPairs.length; i++) {
             if (i % 2 === 0) {
@@ -46,7 +46,7 @@ function testBonusCode (array) {
         }
     }
 
-    function oneHundredCheck (array) {
+    function oneHundredCheck (array) { //ф-я проверит на наличие только четных или нечетных, отбрасывая такие варианты, если нет хотябы 1го противоположного значения цифры
         let checkingArr = array.filter(elem => elem % 2 === 0 || elem % 2 !==0)
         if (checkingArr.length < 7) {
             let sumOfMultiple = 0
@@ -61,27 +61,27 @@ function testBonusCode (array) {
         } else invalidData()
     }
 
-    splittingToPares(array)
+    splittingToPares(array) //инициализируем ф-ю
 }
-function takeMainInput () {
+function takeMainInput () { //проверяет правильность вводимых символов и их кол-во
     let mainInput = document.getElementById('main_input').value
     let array = []
-    if (Number(mainInput)) {
+    if (Number(mainInput) && mainInput.length === 8) {
         array = mainInput.split('').map(x => +x)
         testBonusCode(array)
     } else invalidData()
 
 }
-var totalScore = 0
+var totalScore = 0 //хранит в себе суммарное кол-во денег
 
-function invalidData () {
+function invalidData () { //чтобы красить поле в красный при вводе некоректных значений
     document.querySelector('.input_field').classList.add('input_field_invalid')
 }
-function validData () {
+function validData () { //чтобы вернуть исходный вид
     document.querySelector('.input_field').classList.remove('input_field_invalid')
 }
 
-function scoreAdder (number,str) {
+function scoreAdder (number,str) { //выводит текущее и общее значение денег
     let pWin = document.getElementById('win_p')
     let pTotal = document.getElementById('total_p')
 
