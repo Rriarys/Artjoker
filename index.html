@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bonus Code Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main_container">
+        <form id="main_form" onsubmit="return false;">
+        <div>
+            <input id="main_input" class="input_field" type="text" placeholder="Enter your code" maxlength="8" autocomplete="off"/>
+        </div>
+        <div>
+            <button onclick="takeMainInput()" class="btn"><b>Check code</b></button>
+        </div>
+        </form>
+        <div>
+            <p>You win:</p>
+            <p id="win_p"></p>
+        </div>
+        <div>
+            <p>Your total:</p>
+            <p id="total_p"> </p>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
