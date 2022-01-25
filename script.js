@@ -1,5 +1,5 @@
 function testBonusCode (array) {
-    function task1 (origArray) {
+    function splittingToPares (origArray) {
         let workArray = []
         for (let i = 0; i < origArray.length; i ++) {
             workArray.push(origArray[i])
@@ -11,9 +11,9 @@ function testBonusCode (array) {
         }
         let onlyDis = workArray.join('').split('#').filter(el => el)
 
-        if (onlyDis.length === 1) task3(origArray)
+        if (onlyDis.length === 1) oneHundredCheck(origArray)
 
-        else if (onlyDis.length === 2 && (onlyDis[0].length === 1 || onlyDis[1].length === 1)) task3(origArray)
+        else if (onlyDis.length === 2 && (onlyDis[0].length === 1 || onlyDis[1].length === 1)) oneHundredCheck(origArray)
 
         else {
             let resultArr = []
@@ -23,12 +23,12 @@ function testBonusCode (array) {
                     resultArr.push(point[0], point[1])
                 }
             }
-            if (resultArr.length >= 2) task2(resultArr)
-            else task3(origArray)
+            if (resultArr.length >= 2) twoThousandCheck(resultArr)
+            else oneHundredCheck(origArray)
         }
     }
 
-    function task2 (resultPairs) {
+    function twoThousandCheck (resultPairs) {
         let rArray = []
         for (let i = 0; i < resultPairs.length; i++) {
             if (i % 2 === 0) {
@@ -46,7 +46,7 @@ function testBonusCode (array) {
         }
     }
 
-    function task3 (array) {
+    function oneHundredCheck (array) {
         let checkingArr = array.filter(elem => elem % 2 === 0 || elem % 2 !==0)
         if (checkingArr.length < 7) {
             let sumOfMultiple = 0
@@ -61,7 +61,7 @@ function testBonusCode (array) {
         } else invalidData()
     }
 
-    task1(array)
+    splittingToPares(array)
 }
 function takeMainInput () {
     let mainInput = document.getElementById('main_input').value
