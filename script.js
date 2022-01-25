@@ -70,7 +70,6 @@ function takeMainInput () { //проверяет правильность вво
         array = mainInput.split('').map(x => +x)
         testBonusCode(array)
     } else invalidData()
-
 }
 var totalScore = 0 //хранит в себе суммарное кол-во денег
 
